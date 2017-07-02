@@ -26,7 +26,7 @@ RUN mkdir bin \
 
 # Installing dependencies
 RUN cd src \
-  && go get github.com/gorilla/mux
+  && go get github.com/gorilla/mux \
   && go get github.com/alecthomas/gometalinter
 
 
