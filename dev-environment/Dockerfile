@@ -11,8 +11,8 @@ RUN apt-get update && apt-get install -y \
   curl
 
 # Installing Golang environment
-RUN curl -O https://storage.googleapis.com/golang/go1.7.5.linux-amd64.tar.gz \
-    && tar -C /usr/local -xzf go1.7.5.linux-amd64.tar.gz
+RUN curl -O https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz \
+    && tar -C /usr/local -xzf go1.8.3.linux-amd64.tar.gz
 
 ENV GOPATH=/go-workspace
 ENV PATH=$PATH:/usr/local/go/bin
