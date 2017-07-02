@@ -24,8 +24,11 @@ RUN mkdir bin \
     && mkdir pkg \
     && mkdir src
 
-# Installing Gorilla Mux
-RUN cd src && go get github.com/gorilla/mux
+# Installing dependencies
+RUN cd src \
+  && go get github.com/gorilla/mux
+  && go get github.com/alecthomas/gometalinter
+
 
 # Installing vim-go as IDE
 RUN git clone https://github.com/farazdagi/vim-go-ide.git ~/.vim_go_runtime && sh ~/.vim_go_runtime/bin/install \
