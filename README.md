@@ -2,7 +2,12 @@
 Aprende a crear una API REST con Go, cuales son sus componentes, buenas prácticas y la implementación de funciones de seguridad.
 
 ## API
-TODO
+Desarrolla una REST API en Go para la administración de  películas.
+
+1. Listar las películas disponibles.
+1. Agregar una película.
+1. Eliminar una película.
+
 
 ## Requerimientos
 * Ambiente de desarrollo para Go
