@@ -7,3 +7,8 @@ type Movie struct {
 	Year     int    `json:"year"`
 	Director string `json:"director"`
 }
+
+// ListMoviesResponse represents the response body for the list movies request.
+type ListMoviesResponse struct {
+	Movies []Movie `json:"movies"`
+}
