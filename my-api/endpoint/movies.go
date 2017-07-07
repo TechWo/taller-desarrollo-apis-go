@@ -13,14 +13,13 @@ import (
 // List fetchs all the available movies.
 func List(w http.ResponseWriter, r *http.Request) {
 
-	//TODO: Uses DAL fuction to list all the movie.
 	moviesRaw := MoviesDal.List()
 
 	movies := model.ListMoviesResponse{
 		Movies: moviesRaw,
 	}
 
-	log.Println("[RESPONSE] OK: The moview were fetched.")
+	log.Println("[RESPONSE] OK: The movies were fetched.")
 	writeResponse(w, http.StatusOK, movies)
 
 }
@@ -38,10 +37,8 @@ func Create(w http.ResponseWriter, r *http.Request) {
 
 	MoviesDal.Insert(body)
 
-	//TODO: Uses DAL fuction for insert movies.
-
 	log.Println("[RESPONSE] Created: The movie " + body.Name + " has been created successfully.")
-	writeResponse(w, http.StatusCreated, nil)
+	writeResponse(w, http.StatusCreated, "{}")
 }
 
 // Delete deletes the specified movie.
@@ -49,11 +46,10 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 
 	movieID := mux.Vars(r)["id"]
 
-	//TODO: Uses DAL fuction to delete the movie.
 	MoviesDal.Delete(movieID)
 
 	log.Println("[RESPONSE] Deleted: The movie with the id " + movieID + " has been deleted successfully.")
-	writeResponse(w, http.StatusOK, nil)
+	writeResponse(w, http.StatusOK, "{}")
 
 }
 
@@ -64,6 +60,7 @@ func writeResponse(w http.ResponseWriter, code int, object interface{}) {
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	w.WriteHeader(code)
 	fmt.Fprintf(w, string(data))
 }
