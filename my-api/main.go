@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"git-amr-4.devtools.intel.com/gerrit/p/otc_cloud_ux-dbaas_api.git/endpoint"
+	"github.com/techWomenCommunity/taller-desarrollo-apis-go/my-api/endpoint"
 )
 
 const (
