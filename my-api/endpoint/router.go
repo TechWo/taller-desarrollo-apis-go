@@ -1,6 +1,10 @@
 package endpoint
 
 import "github.com/gorilla/mux"
+import "github.com/techWomenCommunity/taller-desarrollo-apis-go/my-api/model"
+
+//MoviesDal data for movie
+var MoviesDal *model.Movies
 
 // Setup enables the API endpoints and specified their handlers.
 func Setup() *mux.Router {

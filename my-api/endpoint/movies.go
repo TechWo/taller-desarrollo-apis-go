@@ -14,7 +14,7 @@ import (
 func List(w http.ResponseWriter, r *http.Request) {
 
 	//TODO: Uses DAL fuction to list all the movie.
-	moviesRaw := "TO DO"
+	moviesRaw := MoviesDal.List()
 
 	movies := model.ListMoviesResponse{
 		Movies: moviesRaw,
@@ -36,6 +36,8 @@ func Create(w http.ResponseWriter, r *http.Request) {
 	// 1) Not nulls for name, year and director.
 	// 2) Check that year is a valid one (format).
 
+	MoviesDal.Insert(body)
+
 	//TODO: Uses DAL fuction for insert movies.
 
 	log.Println("[RESPONSE] Created: The movie " + body.Name + " has been created successfully.")
@@ -48,6 +50,7 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 	movieID := mux.Vars(r)["id"]
 
 	//TODO: Uses DAL fuction to delete the movie.
+	MoviesDal.Delete(movieID)
 
 	log.Println("[RESPONSE] Deleted: The movie with the id " + movieID + " has been deleted successfully.")
 	writeResponse(w, http.StatusOK, nil)

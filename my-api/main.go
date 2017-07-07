@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/techWomenCommunity/taller-desarrollo-apis-go/my-api/endpoint"
+	"github.com/techWomenCommunity/taller-desarrollo-apis-go/my-api/model"
 )
 
 const (
@@ -14,6 +15,8 @@ const (
 
 func main() {
 	fmt.Println("Welcome to our first API!.")
+
+	endpoint.MoviesDal = model.NewMovies()
 
 	router := endpoint.Setup()
 	http.Handle("/", router)
